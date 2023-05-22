@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Book;
 
 class BookController extends Controller
@@ -12,11 +13,8 @@ class BookController extends Controller
     }
 
     function book(Request $request){
-        //read form data
-
-        // $data = $request->all();
         
-        //validate the form date
+        //read and validate form data
 
         $data = $request->validate([
             "fname"=>"required | alpha | min:3",
@@ -26,8 +24,16 @@ class BookController extends Controller
         ]);
         // Save the data
 
-      Book::create($data);
+      if (Book::create($data)) {
+        // Booking successful
+        Session::flash('success', 'Booking was successful!');
+        return redirect('/dashboard');
+    } else {
+        // Booking failed
+        Session::flash('error', 'Failed to book. Please try again.');
+        return redirect('/book');
+    }
 
-      return redirect('/dashboard');
+     
     }
 }
