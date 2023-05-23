@@ -26,12 +26,10 @@ class BookController extends Controller
 
       if (Book::create($data)) {
         // Booking successful
-        Session::flash('success', 'Booking was successful!');
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('message', 'Booked successfully');
     } else {
         // Booking failed
-        Session::flash('error', 'Failed to book. Please try again.');
-        return redirect('/book');
+        return redirect()->back()->with('message', 'Failed');
     }
 
      

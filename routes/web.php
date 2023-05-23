@@ -19,8 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('booking.create', function () {
+    return view('book')->name('booking');
+});
+
 Route::get('/booking/create', [BookController::class, 'create']);
 Route::post('/booking/book', [BookController::class, 'book']);
+
+Route::post('/booking/create', [BookController::class, 'create'])->name('booking');
 
 
 Route::get('/dashboard', function () {
