@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,5 +38,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('Customer/customers', [CustomerController::class, 'index'])->name('customers');
+Route::get('Customer/add-customer', [CustomerController::class, 'add']);
+Route::post('Customer/save-customer', [CustomerController::class, 'save']);
+Route::get('Customer/edit-customer/{id}', [CustomerController::class, 'edit']);
+Route::post('Customer/update-customer', [CustomerController::class, 'update']);
+Route::get('Customer/delete-customer/{id}', [CustomerController::class, 'delete']);
 
 require __DIR__.'/auth.php';

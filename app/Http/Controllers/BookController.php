@@ -24,13 +24,13 @@ class BookController extends Controller
         ]);
         // Save the data
 
-      if (Book::create($data)) {
-        // Booking successful
-        return redirect('/dashboard')->with('message', 'Booked successfully');
-    } else {
-        // Booking failed
-        return redirect()->back()->with('message', 'Failed');
-    }
+        if (Book::create($data)) {
+            // Booking successful
+            return redirect('/dashboard')->with('message', 'Booked successfully');
+        } else {
+            // Booking failed
+            return redirect()->back()->with('message', 'Failed');
+        }
 
      
     }
