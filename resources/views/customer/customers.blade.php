@@ -6,7 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Customers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+<style>
+   tr:hover {
+  background-color: rgb(191, 191, 191);
+  color:rgb(0, 0, 0);
+  font-weight: bold;
+}
+.btn:hover {
+    box-shadow: 0 0 20px green;
+}
+</style>
 </head>
 <body>
     @include('/header')
@@ -24,13 +33,14 @@
     </div>
     @endif
     <div class="col-md-12">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Name</th>
                     <th>Hotel</th>
                     <th>Seats</th>
+                    <th>Booking Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -44,6 +54,7 @@
                     <td>{{$cust->name}}</td>
                     <td>{{$cust->hotel}}</td>
                     <td>{{$cust->seats}}</td>
+                    <td>{{$cust->created_at}}</td>
                     <td>       
                      <a href="{{url('Customer/edit-customer/'.$cust->id)}}" class="btn btn-info">Edit</a>
                      <a href="{{url('Customer/delete-customer/'.$cust->id)}}" class="btn btn-danger">Delete</a>

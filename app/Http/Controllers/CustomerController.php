@@ -8,8 +8,8 @@ use App\Models\Customer;
 class CustomerController extends Controller
 {
     public function index(){
-       $data= Customer::get();
-       return view('Customer.customers', compact('data'));
+       $data= Customer::orderBy('created_at', 'desc')->get();
+       return view('Customer/customers', compact('data'));
     }
     public function add(){
         return view('Customer.add-customer');

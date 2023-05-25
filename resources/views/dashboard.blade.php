@@ -25,8 +25,8 @@
             </div>
         </div>
         
-            <div class="row p-1 mb-2">
-                <a class="btn btn-success w-300" href="{{ route('customers')}}">Customers</a>
+            <div class="">
+                <a class="btn btn-success w-10 mt-3" href="{{ route('customers')}}">Customers</a>
             </div>
         
     </div>
