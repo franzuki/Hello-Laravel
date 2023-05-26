@@ -10,7 +10,7 @@
    tr:hover {
   background-color: rgb(191, 191, 191);
   color:rgb(0, 0, 0);
-  font-weight: bold;
+  
 }
 .btn:hover {
     box-shadow: 0 0 20px green;

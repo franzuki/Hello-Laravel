@@ -16,7 +16,7 @@ use App\Http\Controllers\CustomerController;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('welcome');
 });
 
 Route::get('booking.create', function () {

@@ -50,10 +50,10 @@ class CustomerController extends Controller
         ]);
         return redirect()->back()->with('success', 'Customer updated successfuly');
 
-}
-public function delete($id){
-    Customer::where('id','=',$id)->delete();
-    return redirect()->back()->with('success', 'Customer deleted successfuly');
+    }
+    public function delete($id){
+        Customer::where('id','=',$id)->delete();
+        return redirect()->back()->with('success', 'Customer deleted successfuly');
 
-}
+    }
 }
