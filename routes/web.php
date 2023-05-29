@@ -37,13 +37,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    Route::get('Customer/add-customer', [CustomerController::class, 'add']);
+    Route::get('Customer/customers', [CustomerController::class, 'index'])->middleware(['auth', 'verified'])->name('customers');
+    Route::post('Customer/save-customer', [CustomerController::class, 'save']);
+    Route::get('Customer/edit-customer/{id}', [CustomerController::class, 'edit']);
+    Route::post('Customer/update-customer', [CustomerController::class, 'update']);
+    Route::get('Customer/delete-customer/{id}', [CustomerController::class, 'delete']);
+
 });
 
-Route::get('Customer/customers', [CustomerController::class, 'index'])->name('customers');
-Route::get('Customer/add-customer', [CustomerController::class, 'add']);
-Route::post('Customer/save-customer', [CustomerController::class, 'save']);
-Route::get('Customer/edit-customer/{id}', [CustomerController::class, 'edit']);
-Route::post('Customer/update-customer', [CustomerController::class, 'update']);
-Route::get('Customer/delete-customer/{id}', [CustomerController::class, 'delete']);
 
 require __DIR__.'/auth.php';

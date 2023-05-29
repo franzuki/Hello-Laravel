@@ -37,6 +37,7 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Hotel</th>
                     <th>Seats</th>
@@ -51,6 +52,7 @@
                 @foreach ($data as $cust)
                 <tr>
                     <td>{{$i++}}</td>
+                    <td><img src="{{ asset('storage/images/customers/'.$cust->image) }}" width="50" height="50" style="border-radius:100%"></td>
                     <td>{{$cust->name}}</td>
                     <td>{{$cust->hotel}}</td>
                     <td>{{$cust->seats}}</td>

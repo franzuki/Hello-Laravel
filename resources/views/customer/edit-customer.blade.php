@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="d-flex justify-content-center col-md-12">
-                <form style="width:500px" action="{{url('Customer/update-customer')}}" method="post">
+                <form style="width:500px" action="{{url('Customer/update-customer')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" value="{{$data->id}}">
                     <div class="md-4">
@@ -49,6 +49,21 @@
                             @error('seats')
                             <span style="color: red">{{$message}}</span>
                             @enderror
+                    </div>
+                    <input type="text" class="form-control" name="old_image" value="{{$data->image}}">
+                    <div class="md-3">
+                        <label class="form-label">Image</label>
+                        <div class="mb-4">
+                            @if ($data->image)
+                                <img src="{{ asset('storage/images/customers/' . $data->image) }}" alt="No image Availbale" width="200">
+                            @else
+                                <p>No image available</p>
+                            @endif
+                        </div>
+                        <input type="file" class="form-control" name="image">
+                        @error('image')
+                            <span style="color: red">{{ $message }}</span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Save</button>
                     <a href="{{url('Customer/customers')}}" class="btn btn-danger mt-3">Back</a>

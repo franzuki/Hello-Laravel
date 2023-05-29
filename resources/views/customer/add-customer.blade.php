@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="d-flex justify-content-center col-md-12">
-                <form style="width:500px" action="{{url('Customer/save-customer')}}" method="post">
+                <form style="width:500px" action="{{url('Customer/save-customer')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="md-4">
                         <label class="form-label">Name</label>
@@ -46,6 +46,13 @@
                         <label class="form-label">Seats</label>
                             <input type="number" class="form-control" name="seats" min="1" value="{{old('seats')}}">
                             @error('seats')
+                            <span style="color: red">{{$message}}</span>
+                            @enderror
+                    </div>
+                    <div class="md-3">
+                        <label class="form-label">Image</label>
+                            <input type="file" class="form-control" name="image">
+                            @error('image')
                             <span style="color: red">{{$message}}</span>
                             @enderror
                     </div>

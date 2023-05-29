@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('hotel');
             $table->string('seats');
+            $table->string('image')->default('default.png');
             $table->timestamps();
         });
     }
